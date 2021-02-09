@@ -1,10 +1,10 @@
 import React from "react"
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { goBack, goToPokedex, goToHomePage } from "./coordinator"
-import Header from "../Components/Header"
-import HomePage from "../Pages/HomePage"
-import PokemonDetailPage from "../Pages/PokeDetailPage"
-import PokedexPage from "../Pages/PokedexPage"
+import Header from "../Components/header"
+import HomePage from "../Pages/HomePage/homepage"
+import PokemonDetailPage from "../Pages/PokemonDetailPage/pokemonDetailPage"
+import PokedexPage from "../Pages/PokedexPage/pokedexPage"
 
 const Router = () => {
     return (
