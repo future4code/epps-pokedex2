@@ -1,6 +1,6 @@
-import React from "react" 
+import React from "react";
 
-const PokeDetailPage = () => {
+const PokeDetailPage = () => {    
     return (
         <div>
             <h1>DETALHES POKEMON</h1>

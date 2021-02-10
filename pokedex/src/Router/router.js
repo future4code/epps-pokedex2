@@ -1,6 +1,5 @@
 import React from "react"
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import { goBack, goToPokedex, goToHomePage } from "./coordinator"
 import Header from "../Components/header"
 import HomePage from "../Pages/HomePage/homepage"
 import PokemonDetailPage from "../Pages/PokemonDetailPage/pokemonDetailPage"
@@ -11,25 +10,15 @@ const Router = () => {
         <BrowserRouter>
             <Switch>
                 <Route exact path="/">
-                    <Header 
-                        title="Lista de pokemons"
-                        leftButtonFunction={goToPokedex}
-                    />
+                    <Header/>
                     <HomePage />
                 </Route>
                 <Route exact path="/pokemon-detalhes/:pokemonName">
-                    <Header 
-                        leftButtonFunction={goBack}
-                        title=""
-                        rightButtonFunction={goToPokedex}
-                    />
+                    <Header/>
                     <PokemonDetailPage />
                 </Route>
                 <Route exact path="/pokedex">
-                    <Header 
-                        leftButtonFunction={goToHomePage}
-                        title="Pokedex"
-                    />
+                    <Header/>
                     <PokedexPage />
                 </Route>
             </Switch>

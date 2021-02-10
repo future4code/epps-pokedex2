@@ -6,10 +6,6 @@ export const goToHomePage = (history) => {
     history.push("/pokedex");
   };
 
-  export const goToPokeDetailPage = (history, pokemonName) => {
+  export const goToPokemonDetailPage = (history, pokemonName) => {
     history.push(`/pokemon-detalhes/${pokemonName}`);
-  };
-
-  export const goBack = (history) => {
-    history.goBack();
   };

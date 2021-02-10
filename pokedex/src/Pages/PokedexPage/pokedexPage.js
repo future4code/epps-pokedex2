@@ -1,7 +1,6 @@
-import React from "react"
+import React from "react";
 
 const PokedexPage = () => {
-
     return (
         <div>
             <h1>POKEDEX</h1>
@@ -10,4 +9,4 @@ const PokedexPage = () => {
 }
 
 
-export default PokedexPage
+export default PokedexPage;
