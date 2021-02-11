@@ -1,5 +1,4 @@
 import React, {  useEffect, useState } from "react";
-import { goToPokemonDetailPage} from '../Router/coordinator';
 import { useHistory } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -62,7 +61,7 @@ const PokemonCard = (props) => {
         <Button
           size="small"
           color="primary"
-          onClick={() => goToPokemonDetailPage(history, pokemon.name)}
+          href={`/pokemon-detalhes/${props.name}`}
         >
           Detalhes deste Pokemon
         </Button>

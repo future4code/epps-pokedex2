@@ -31,8 +31,10 @@ const HomePage = () => {
     }else{
         newPokedex[index].ammount += 1
     }
-    setters.setPokedex(newPokedex);
+    setters.setPokedex(newPokedex); 
   };
+
+    
 
   const pokemonsList = 
   states.pokemons && states.pokemons.map((item) =>{
