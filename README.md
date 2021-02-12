@@ -5,7 +5,7 @@ Nome dos integrantes:
 - Pablo Silas
 - Mônica Marçal
 
-Link do Surge: www.link.com.br
+Link do Surge: http://heavy-purpose.surge.sh/
 
 O que funciona:
 - HomePage mostrando os pokemons
