@@ -12,36 +12,40 @@ export const MainContainer = styled.div`
   justify-content: space-around;
 `
 
-const HomePage = (props) => {
-  const {states, setters, requests} = useContext(UrlsPokedexContext)
-  const [pokedex, setPokedex] = useState([]);
+const HomePage = () => {
+  const { states, setters, requests } = useContext(UrlsPokedexContext);
+
   //const history = useHistory()
 
-  useEffect(() =>{
-    requests.getPokemons()
-  },[requests])
+  useEffect(() => {
+    requests.getPokemons();
+  }, [requests]);
 
   /* função para adicionar na pokedex */
   const addPokemonToPokedex = (newItem) => {
-    let newPokedex = [...pokedex, newItem]
-    setPokedex(newPokedex)
-    alert(`${newItem.name}` + ' foi adicionado a Pokedex!')
+    const index = states.pokedex.findIndex((i) => i.name === newItem.name);
+    let newPokedex = [...states.pokedex];
+    if (index === -1) {
+      newPokedex.push({ ...states.newPokedex, name: newItem.name, url: newItem.url});
+      alert(`${newItem.name} foi adicionado a Pokedex!`);
+      } else {
+      newPokedex[index].ammount += 1;
+    }
+    setters.setPokedex(newPokedex);
   };
 
-  console.log(pokedex)
-    
-
-  const pokemonsList = 
-  states.pokemons && states.pokemons.map((item) =>{
-    return(
-      <PokemonCard
-      key={item.url}
-      url={item.url}
-      name={item.name}
-      addPokemon={() => addPokemonToPokedex(item)}
-      />
-    )
-  })
+  const pokemonsList =
+    states.pokemons &&
+    states.pokemons.map((item) => {
+      return (
+        <PokemonCard
+          key={item.url}
+          url={item.url}
+          name={item.name}
+          addPokemon={() => addPokemonToPokedex(item)}
+        />
+      );
+    });
 
   return <MainContainer>{pokemonsList}</MainContainer>;
 };
