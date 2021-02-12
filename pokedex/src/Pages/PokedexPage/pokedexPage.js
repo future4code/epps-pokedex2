@@ -33,8 +33,9 @@ const PokedexPage = () => {
     alert("Pokemon removido");
   };
 
+
   const pokemonsList = states.pokedex.map((item) => {
-      return (
+        return (
         <PokemonCardPokedex
           key={item.url}
           url={item.url}

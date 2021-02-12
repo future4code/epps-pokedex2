@@ -14,6 +14,7 @@ const useStyles = makeStyles({
   root: {
     maxWidth: 345,
     margin: '0px 10px 50px 0px',
+    height: 280,
   },
 });
 
@@ -27,7 +28,8 @@ const PokemonCardPokedex = (props) => {
       .get(props.url)
       .then((res) => {
         setPokemon(res.data.sprites.front_default);
-        
+        console.log(res.data)
+
       })
       .catch((err) => {
         console.log(err);
@@ -39,8 +41,10 @@ const PokemonCardPokedex = (props) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  
   return (
-    <Card className={classes.root}>
+      <Card className={classes.root}>
+
       <CardActionArea>
         <CardMedia
           component="img"

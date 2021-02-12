@@ -38,6 +38,7 @@ const PokemonCard = (props) => {
     getPokemon();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  
 
   return (
     <Card className={classes.root}>
