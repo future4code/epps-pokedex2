@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from 'styled-components';
 import PokemonCard from "../../Components/pokemonCard";
 import UrlsPokedexContext from "../../Contexts/UrlsPokedexContext";
@@ -12,8 +12,9 @@ export const MainContainer = styled.div`
   justify-content: space-around;
 `
 
-const HomePage = () => {
+const HomePage = (props) => {
   const {states, setters, requests} = useContext(UrlsPokedexContext)
+  const [pokedex, setPokedex] = useState([]);
   //const history = useHistory()
 
   useEffect(() =>{
@@ -22,18 +23,12 @@ const HomePage = () => {
 
   /* função para adicionar na pokedex */
   const addPokemonToPokedex = (newItem) => {
-    const index = states.pokedex.findIndex((i) => i.name === newItem.name);
-    let newPokedex = [...states.pokedex];
-    console.log(newPokedex)
-    if(index === -1){
-        newPokedex.push({...states.newPokedex, ammount: 1})
-        alert(`${newItem.name} foi adicionado!`)
-    }else{
-        newPokedex[index].ammount += 1
-    }
-    setters.setPokedex(newPokedex); 
+    let newPokedex = [...pokedex, newItem]
+    setPokedex(newPokedex)
+    alert(`${newItem.name}` + ' foi adicionado a Pokedex!')
   };
 
+  console.log(pokedex)
     
 
   const pokemonsList = 
