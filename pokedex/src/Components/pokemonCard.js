@@ -1,5 +1,4 @@
 import React, {  useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -19,7 +18,6 @@ const useStyles = makeStyles({
 
 const PokemonCard = (props) => {
   const classes = useStyles();
-  const history = useHistory();
   const [pokemon, setPokemon] = useState("");
 
   const getPokemon = () => {

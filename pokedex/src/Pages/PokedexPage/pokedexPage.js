@@ -1,8 +1,7 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import PokemonCardPokedex from "../../Components/pokemonCardPokedex";
 import UrlsPokedexContext from "../../Contexts/UrlsPokedexContext";
 import styled from 'styled-components';
-
 
 export const MainContainer = styled.div`
   padding:0;
@@ -14,18 +13,14 @@ export const MainContainer = styled.div`
 `
 
 const PokedexPage = () => {
-  const { states, setters, requests } = useContext(UrlsPokedexContext);
-  //const history = useHistory()
+  const { states, setters } = useContext(UrlsPokedexContext);
 
-  useEffect(() => {
-    requests.getPokemons();
-  }, [requests]);
-
+  /* função para remover da pokedex */
   const removePokemon = (remove) => {
     const index = states.pokedex.findIndex((i) => i.name === remove.name);
     let newPokedex = [...states.pokedex];
     if (newPokedex[index].amount === 1) {
-        newPokedex.splice(index, 1);
+      newPokedex.splice(index, 1);
     } else {
       newPokedex[index].amount -= 1;
     }
@@ -33,7 +28,9 @@ const PokedexPage = () => {
     alert("Pokemon removido");
   };
 
-  const pokemonsList = states.pokedex.map((item) => {
+  const pokemonsList =
+    states.pokedex &&
+    states.pokedex.map((item) => {
       return (
         <PokemonCardPokedex
           key={item.url}
@@ -44,8 +41,7 @@ const PokedexPage = () => {
       );
     });
 
-  return <MainContainer>{pokemonsList.length > 0 ? pokemonsList : <p> Pokedex Vazia</p>}</MainContainer>;
+  return <MainContainer>{pokemonsList}</MainContainer>;
 };
-
 
 export default PokedexPage;

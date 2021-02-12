@@ -12,5 +12,4 @@ O que funciona:
 - Ver detalhes do pokemon escolhido
 
 O que não funciona: 
-- Item 3
-- Item 4
+- Pokemons não são renderizados na Pokedex

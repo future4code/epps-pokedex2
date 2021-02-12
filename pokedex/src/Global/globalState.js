@@ -6,7 +6,6 @@ import UrlsPokedexContext from "../Contexts/UrlsPokedexContext";
 const GlobalState = (props) => {
   const [pokemons, setPokemons] = useState([]);
   const [pokedex, setPokedex] = useState([]);
-  const [image, setImage] = useState([]);
 
   const getPokemons = () => {
     axios
@@ -19,8 +18,8 @@ const GlobalState = (props) => {
       });
   };
 
-  const states = { pokemons, pokedex, image };
-  const setters = { setPokemons, setPokedex, setImage };
+  const states = { pokemons, pokedex };
+  const setters = { setPokemons, setPokedex };
   const requests = { getPokemons };
 
   const data = { states, setters, requests };

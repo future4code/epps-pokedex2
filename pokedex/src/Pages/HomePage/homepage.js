@@ -14,7 +14,6 @@ export const MainContainer = styled.div`
 
 const HomePage = () => {
   const { states, setters, requests } = useContext(UrlsPokedexContext);
-  //const history = useHistory()
 
   useEffect(() => {
     requests.getPokemons();
