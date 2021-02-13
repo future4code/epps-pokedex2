@@ -47,7 +47,8 @@ const HomePage = () => {
       );
     });
 
-  return <MainContainer>{pokemonsList}</MainContainer>;
+  return <MainContainer>{pokemonsList}</MainContainer>
+
 };
 
 export default HomePage

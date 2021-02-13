@@ -3,8 +3,19 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import { goToHomePage, goToPokedex, goToPokemonDetailPage} from '../Router/coordinator';
+import { goToHomePage, goToPokedex } from '../Router/coordinator';
 import { useHistory } from "react-router-dom";
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#fb6571',
+    },
+  },
+});
 
 const useStyles = makeStyles({
   root: {
@@ -22,19 +33,20 @@ const Header = () => {
   };
 
   return (
-    <Paper className={classes.root}>
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        indicatorColor="primary"
-        textColor="primary"
-        centered
-      >
-        <Tab label="Lista de Pokemons" onClick={() => goToHomePage(history)} />
-        <Tab label="Detalhes do Pokemon escolhido" onClick={() => goToPokemonDetailPage(history)}/>
-        <Tab label="Pokedex" onClick={() => goToPokedex(history)} />
-      </Tabs>
-    </Paper>
+    <ThemeProvider theme={theme}>
+      <Paper className={classes.root} color='primary'>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+          centered
+        >
+          <Tab label="Lista de Pokemons" onClick={() => goToHomePage(history)} />
+          <Tab label="Pokedex" onClick={() => goToPokedex(history)} />
+        </Tabs>
+      </Paper>
+    </ThemeProvider>
   );
 };
 

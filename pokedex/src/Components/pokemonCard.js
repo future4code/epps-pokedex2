@@ -9,6 +9,17 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import axios from "axios";
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#fb6571',
+    },
+  },
+});
 
 const useStyles = makeStyles({
   root: {
@@ -41,33 +52,45 @@ const PokemonCard = (props) => {
   
 
   return (
+    <ThemeProvider theme={theme}>
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia
+        {!pokemon ?
+          <CardMedia
+          component="img"
+          alt="Loading"
+          height="200"
+          src='https://cdn.dribbble.com/users/946764/screenshots/2844436/pokeball.gif'
+        /> 
+          :
+          <CardMedia
           component="img"
           alt="Pokemon"
-          height="140"
+          height="200"
           src={pokemon}
         />
+      }
+
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h4" component="h2" color='primary'>
             {props.name}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" onClick={props.addPokemon}>
+        <Button size="small" onClick={props.addPokemon}>
           Adicionar à pokedex
         </Button>
         <Button
           size="small"
-          color="primary"
+          align='center'
           href={`/pokemon-detalhes/${props.name}`}
         >
-          Detalhes deste Pokemon
+          Detalhes do Pokemon
         </Button>
       </CardActions>
     </Card>
+    </ThemeProvider>
   );
 };
 
