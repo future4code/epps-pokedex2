@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 export const NamePoke = styled.h1 `
     text-transform: uppercase;
-    color: #3f51b5;
+    color: #fb6571;
     cursor: default;
 `
 
 export const Title = styled.h3 `
-    color: #3f51b5;
+    color: #fb6571;
     cursor: default;
 `
 

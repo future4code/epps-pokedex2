@@ -3,6 +3,11 @@ import PokemonCardPokedex from "../../Components/pokemonCardPokedex";
 import UrlsPokedexContext from "../../Contexts/UrlsPokedexContext";
 import styled from 'styled-components';
 
+const NoPokemon = styled.h1 ` 
+  color: #fb6571;
+  text-transform: uppercase;
+`
+
 
 export const MainContainer = styled.div`
   padding:0;
@@ -45,7 +50,7 @@ const PokedexPage = () => {
       );
     });
 
-  return <MainContainer>{pokemonsList.length > 0 ? pokemonsList : <p> Pokedex Vazia</p>}</MainContainer>;
+  return <MainContainer>{pokemonsList.length > 0 ? pokemonsList : <NoPokemon> Pokedex Vazia! :( </NoPokemon>}</MainContainer>;
 };
 
 
