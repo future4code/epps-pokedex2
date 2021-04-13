@@ -1,15 +1,15 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- Sandro Tomé
+- Pablo Silas
+- Mônica Marçal
 
-Link do Surge: www.link.com.br
+Link do Surge: http://illegal-surprise.surge.sh/
 
 O que funciona:
-- Item 1
-- Item 2
+- HomePage mostrando os pokemons
+- Ver detalhes do pokemon escolhido
 
 O que não funciona: 
 - Item 3
